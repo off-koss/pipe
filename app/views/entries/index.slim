@@ -1,0 +1,19 @@
+- @title = "Entries of feed: #{@feed.name}"
+
+h1
+  = @feed.name
+
+hr
+
+- @entries.each do |entry|
+  .panel.panel-default
+    .panel-body
+      '
+      = link_to entry.title, feed_entry_path(@feed, entry)
+      '
+      ' -
+      i
+        ' published
+        = time_ago_in_words(entry.published)
+        '
+        ' ago.

@@ -1,0 +1,13 @@
+- @title = "Feed: #{@feed.name}"
+
+h3
+  ' There are
+  = link_to "#{@feed.entries.count} entries", feed_entries_path(@feed)
+  '
+  ' available for the feed
+  = @feed.name
+hr
+= link_to 'Edit', edit_feed_path
+'
+' |
+= link_to 'Back', feeds_path

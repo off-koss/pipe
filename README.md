@@ -1,1 +1,1 @@
-# feedreader-demo
+# feedreader

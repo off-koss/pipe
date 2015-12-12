@@ -1,0 +1,11 @@
+- @title = "Entry of feed: #{@feed.name}"
+
+h3
+  = link_to @entry.title, @entry.url
+i
+  ' published on
+  = @entry.published
+  |  by
+  = @entry.author
+p
+  = @entry.content.html_safe if @entry.content.present?

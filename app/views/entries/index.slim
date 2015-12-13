@@ -2,8 +2,10 @@
 
 h1
   = @feed.name
-
 hr
+
+p
+  = link_to 'Back', feeds_path
 
 - @entries.each do |entry|
   .panel.panel-default

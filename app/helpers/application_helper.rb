@@ -1,6 +1,6 @@
 module ApplicationHelper
   def full_title(page_title)
-    base_title = 'Feed reader'
+    base_title = 'Pipe'
 
     if @title.nil?
       base_title

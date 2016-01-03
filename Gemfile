@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
+gem 'rails', '4.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -45,8 +45,16 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
+# colorize console logs
+gem 'colorize'
+
 gem 'feedjira'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
 gem 'slim-rails'
+gem 'puma'

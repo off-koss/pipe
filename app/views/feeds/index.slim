@@ -1,33 +1,23 @@
-- @title = 'Main page'
+- @title = 'Feeds'
 
 p#notice
   = notice
-h1
-  | Listing Feeds
-table.table
+h1 Feeds
+
+table width='100%'
   thead
     tr
-      th
-        | Name
-      th
-        | Url
-      th
-        | Description
+      th Name
+      th Url
+      th Description
       th[colspan="3"]
   tbody
     - @feeds.each do |feed|
       tr
-        td
-          = link_to feed.name, feed_entries_path(feed)
-        td
-          = feed.url
-        td
-          = feed.description
-        td
-          = link_to 'Show', feed
-        td
-          = link_to 'Edit', edit_feed_path(feed)
-        td
-          = link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Feed', new_feed_path
+        td = link_to feed.name, feed_entries_path(feed)
+        td = feed.url
+        td = feed.description
+        td = link_to 'Show', feed
+        td = link_to 'Edit', edit_feed_path(feed)
+        td = link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }
+

@@ -1,0 +1,41 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[name="keywords" content="rss feed slack pipe"]
+    meta[name="description" content="Pipe between RSS feeds and Slack channels"]
+    title = full_title(yield(:title))
+      /= content_for?(:title) ? full_title(yield(:title)) : "Pipe"
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'http://html5shim.googlecode.com/svn/trunk/html5.js'
+    = favicon_link_tag 'favicon.png', rel: 'icon', type: 'image/png'
+    = csrf_meta_tags
+  body
+    header
+      nav.top-bar(data-topbar)
+        ul.title-area
+          li.name
+            h1
+              a href=root_path
+                i.fi-rss>
+                'Pipe
+          li.toggle-topbar.menu-icon
+            a href='#'
+              span Menu
+        section.top-bar-section
+          ul.left
+            li
+              a href=feeds_path
+                i.fi-list>
+                'Feeds
+            li
+              a href=new_feed_path
+                i.fi-plus>
+                'Add feed
+
+    .row.left
+      .large-12.columns
+        = yield
+    = render 'layouts/footer'

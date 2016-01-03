@@ -1,3 +1,8 @@
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/*
+ *= require foundation
+ *= require_self
+ *= require_tree .
+ */
+
+@import "foundation_and_overrides";
+@import 'foundation-icons';

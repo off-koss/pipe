@@ -7,3 +7,6 @@
  3. rake db:migrate
  4. rails s
 
+## Sync feeds
+
+    bundle exec rake sync:feeds

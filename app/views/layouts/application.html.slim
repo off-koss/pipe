@@ -6,7 +6,6 @@ html[lang="en"]
     meta[name="keywords" content="rss feed slack pipe"]
     meta[name="description" content="Pipe between RSS feeds and Slack channels"]
     title = full_title(yield(:title))
-      /= content_for?(:title) ? full_title(yield(:title)) : "Pipe"
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = javascript_include_tag 'http://html5shim.googlecode.com/svn/trunk/html5.js'
@@ -25,17 +24,26 @@ html[lang="en"]
             a href='#'
               span Menu
         section.top-bar-section
-          ul.left
-            li
-              a href=feeds_path
-                i.fi-list>
-                'Feeds
-            li
-              a href=new_feed_path
-                i.fi-plus>
-                'Add feed
-
-    .row.left
+          -if user_signed_in?
+            ul.left
+              li
+                a href=feeds_path
+                  i.fi-list>
+                  'Feeds
+              li
+                a href=new_feed_path
+                  i.fi-plus>
+                  'Add feed
+            ul.right
+              li.has-form
+                =link_to(destroy_user_session_path, :method => :delete, :class => "button small alert") do
+                  i.fi-key>
+                  'Sign out
+    main.row
       .large-12.columns
+        / -if notice
+        /   .alert-box.info(data-alert) = notice
+        / -if alert
+        /   .alert-box.alert(data-alert) = alert
         = yield
     = render 'layouts/footer'
